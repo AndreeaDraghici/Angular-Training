@@ -17,7 +17,7 @@
     <ul class="wish-list">
       <!-- Unordered list with a class 'wish-list' that contains each item in 'items'. -->
 
-      <li *ngFor="let item of items">
+      <li *ngFor="let item of items; index as ii">
         <!-- This <li> element is repeated for each element in the 'items' array.
              'item' represents the current element in each iteration of the loop. -->
 
@@ -27,11 +27,23 @@
           <label class="form-check-label">
             <!-- Label with the class 'form-check-label', often used to label form elements in a styled way. -->
 
-            <input class="checkbox" type="checkbox">
-            <!-- Checkbox input element with the class 'checkbox', allowing the user to mark each wish as checked or unchecked. -->
+           <!--
+            Checkbox input element used to display and update the completion status of an item in a list.
+            * Attributes:
 
-            {{item.wishText}}
-            <!-- Displays the 'wishText' property of the current 'item', which is the text of each wish. -->
+            * - [checked]="item.isComplete": Angular property binding that dynamically sets the checkbox's `checked` state based on the 'isComplete' property of the current item.
+            *   - If 'item.isComplete' is true, the checkbox will be rendered as checked.
+            *   - If 'item.isComplete' is false, the checkbox will be rendered as unchecked.
+            * - [attr.data-inde]="ii": Angular attribute binding that dynamically sets a custom data attribute, `data-inde`, on the checkbox element.
+            *   - `ii` is likely an index variable from an *ngFor loop, representing the position of the current item in the list.
+            *   - `data-inde` allows easy access to the index of each item in the DOM if needed for additional functionality or styling.
+           -->
+            <input 
+              class="checkbox" 
+              type="checkbox"
+              [checked]="item.isComplete" 
+              [attr.data-index]="ii"
+            />{{item.wishText}}
           </label>
         </div>
       </li>

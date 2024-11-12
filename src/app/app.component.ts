@@ -14,7 +14,8 @@ import { WishItem } from '../shared/models/wishItem';
 export class AppComponent {
 
   //created an items array that contains multiple WishItem objects
-  items =[
+  //array of WishItems objects
+  items : WishItem[]=[
     new WishItem('Learn Angular'),
     new WishItem('Andreea wants coffee', true),
     new WishItem('Find grass thhat cuts istself')
