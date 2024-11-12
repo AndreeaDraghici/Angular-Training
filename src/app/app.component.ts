@@ -22,4 +22,17 @@ export class AppComponent {
   ]
 
   title = 'wishlist';
+/**
+ * Toggles the completion status of a given wish item.
+ *
+ * This method takes a `WishItem` object and reverses its `isComplete` property.
+ * If `isComplete` is `true`, it sets it to `false`, and vice versa. 
+ * After toggling, it logs the updated item to the console.
+ *
+ * @param {WishItem} item - The wish item whose completion status is to be toggled.
+ */
+toggleItem(item: WishItem): void {
+  item.isComplete = !item.isComplete;
+  console.log(item);
+}
 }
